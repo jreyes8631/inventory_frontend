@@ -1,5 +1,5 @@
 header {
-	background-color: #83e4f5;
+	background-color: #d631ff;
 	border-radius: 10px;
 	padding: 10px;
 	text-align: center;
@@ -12,14 +12,14 @@ header {
 }
 
 body {
-	background-color: #b0aed1;
+	background-color: #75c0bc;
 	margin: 70px;
 	padding: 20px;
 	font-family: Helvetica;
 }
 
 h1 {
-	background-color: #84e9f7;
+	background-color: #d631ff;
 	border-radius: 10px;
 	padding: 10px;
 	margin: 0;
@@ -27,7 +27,7 @@ h1 {
 }
 
 h3 {
-	background-color: #84e9f7;
+	background-color: #d631ff;
 	border-radius: 10px;
 	padding: 10px;
 	margin: 0;
