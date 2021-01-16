@@ -1,12 +1,3 @@
-const categoryFormFields = `
-    <label>Title:</label><br/>
-    <input type="text" id="title" required>
-    <input type="hidden" id="category_id">
-    <label>Description: </label>
-    <textarea id="description" rows="3" cols="20" required></textarea>
-`;
-
-
 class Category {
   constructor(attributes) {
     let whitelist = ["id", "title", "description", "user_id"]
@@ -14,13 +5,9 @@ class Category {
   }
 
     static container(){
-      return this.c ||= document.querySelector("#container")
+      return this.c ||= document.querySelector("#categories-list")
     }
    
-
-    static list(){
-      return this.l ||= document.querySelector("#categories-list")
-    }
 
     static all(){
       return fetch("http://localhost:3000/categories", {
@@ -36,13 +23,35 @@ class Category {
           return res.text().then(error => Promise.reject(error))
         }
       })
-      .then(categoryArray =>{
-        debugger
+      .then(categoryArray => {
+        this.collection = categoryArray.map(attrs => new Category(attrs))
+        let categoryList = this.collection.map(c => c.render())
+        this.container().append(...categoryList)
+        return this.collection
       })
     }
 
   
+  render() {
+   this.element ||= document.createElement('li');
+   this.element.class = "container";
 
+   this.nameLink  ||= document.createElement('a');
+   this.nameLink.class = "container-category";
+   this.nameLink.textContent = this.title;
+
+   this.editLink ||= document.createElement('a');
+   this.editLink.classList.add(..."py-4 text-right".split(" "))
+   this.editLink.innerHTML = `<i class="fa fa-pencil-alt"></i>`;
+
+   this.deleteLink ||= document.createElement('a');
+   this.deleteLink.classList.add(..."my-4 text-right".split(" "))
+   this.editLink.innerHTML = `<i class="fa fa-trash-alt"></i>`;
+
+   this.element.append(this.nameLink, this.editLink, this.deleteLink);
+
+   return this.element;
+  }
 
 
 }
