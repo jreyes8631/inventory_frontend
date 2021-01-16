@@ -5,4 +5,5 @@ document.addEventListener("click", function(e){
 
 document.addEventListener('DOMContentLoaded', function(e){
  Category.all();
+ Item.all();
 })

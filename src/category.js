@@ -38,7 +38,7 @@ class Category {
 
    this.nameLink  ||= document.createElement('a');
    this.nameLink.class = "container-category";
-   this.nameLink.textContent = this.title;
+   this.nameLink.textContent = `Category: ${this.title}`;
 
    this.editLink ||= document.createElement('a');
    this.editLink.classList.add(..."py-4 text-right".split(" "))
