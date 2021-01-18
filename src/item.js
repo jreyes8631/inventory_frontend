@@ -36,12 +36,6 @@ class Item {
    this.element ||= document.createElement('table');
    this.element.class = "container-table";
 
-   this.element ||= document.createElement('thead');
-   this.element.class = "container-thead";
-
-   this.element ||= document.createElement('tr');
-   this.element.class = "container-tr";
-
    this.nameLink  ||= document.createElement('th');
    this.nameLink.class = "container-item";
    this.nameLink.textContent = this.name;
