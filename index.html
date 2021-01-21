@@ -17,8 +17,10 @@
     <h3>Keep track of your personal inventory</h3>
     </header>
 	<body>
+		<section id="flash" class="bg-red-200 h-8 col-span-3 opacity-0">this error</section>
 		<main>
 		<div class="card" id="categories-list">
+			
 
 		</div>
 		<div class="container" id="categories-form">
@@ -26,19 +28,50 @@
 		</div>
 	  </main>
 	   <!--Container-->
-      <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2" id = "items-list">
-			<!--Card-->
-			 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-				
-				
-					
-				</table>
-				
-				
-			</div>
-			<!--/Card-->
+	  <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2" id = "items-list">
+		   <form id="newItem" class="py-1 text-left text-xs font-medium text-black-500 uppercase tracking-wider grid grid-cols-5 gap-2">
+			<input type="text" name ="name" class="px-6 py-3 text-left text-xs font-medium text-black-500 uppercase tracking-wider" placeholder="Name"/>
+			<input type="text" name ="quantity" class="px-6 py-3 text-left text-xs font-medium text-black-500 uppercase tracking-wider" placeholder="Quantity"/>
+			<input type="text" name ="color" class="px-6 py-3 text-left text-xs font-medium text-black-500 uppercase tracking-wider" placeholder="Color"/>
+			<input type="text" name ="details" class="px-6 py-3 text-left text-xs font-medium text-black-500 uppercase tracking-wider" placeholder="Details"/>
+			 <input type="hidden" id="category_id" name="category_id" value="1">
+			<button type="submit" class="uppercase px-8 py-2 bg-green-600 text-blue-50 max-w-max shadow-sm hover:shadow-lg">Submit</button>
+         </form>
 
+			<div class="flex flex-col bg-white">
+				<div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+				<div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+					<div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+					<table class="min-w-full divide-y divide-gray-200">
+						<thead class="bg-gray-50">
+						<tr>
+							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+							Name
+							</th>
+							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+							Quantity
+							</th>
+							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+							Color
+							</th>
+							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+							Details
+							</th>
+							<th scope="col" class="relative px-6 py-3">
+							<span class="sr-only">Edit</span>
+							</th>
+						</tr>
+						</thead>
+						<tbody id="itemsTable" class="bg-white divide-y divide-gray-200">
+						
 
+						<!-- More items... -->
+						</tbody>
+					</table>
+					</div>
+				</div>
+				</div>
+				</div>
       </div>
 
 
