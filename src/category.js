@@ -33,22 +33,15 @@ class Category {
 
   
   render() {
-   this.element ||= document.createElement('li');
+ 
+  this.element ||= document.createElement('select');
    this.element.class = "container";
 
-   this.nameLink  ||= document.createElement('a');
-   this.nameLink.class = "container-category";
-   this.nameLink.textContent = `Category: ${this.title}`;
+   this.nameOp  ||= document.createElement('option');
+   this.nameOp.class = "container-category";
+   this.nameOp.textContent = `Category: ${this.title}`;
 
-   this.editLink ||= document.createElement('a');
-   this.editLink.classList.add(..."py-4 text-right".split(" "))
-   this.editLink.innerHTML = `<i class="fa fa-pencil-alt"></i>`;
-
-   this.deleteLink ||= document.createElement('a');
-   this.deleteLink.classList.add(..."my-4 text-right".split(" "))
-   this.editLink.innerHTML = `<i class="fa fa-trash-alt"></i>`;
-
-   this.element.append(this.nameLink, this.editLink, this.deleteLink);
+   this.element.append(this.nameOp);
 
    return this.element;
   }
