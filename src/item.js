@@ -56,15 +56,15 @@ class Item {
 
       .then(itemAttributes => {
         let itemListed = new Item(itemAttributes);
-        this.collection.push(itemListed);
-        this.container().appendchild(itemListed.render());
+        this.iCollection.push(itemListed);
+        this.container().appendChild(itemListed.render());
         new FlashMessage({type: 'success', message: 'New item added successfully'})
         return itemListed;
       })
 
       .catch(error => {
         new FlashMessage({type: 'error', message: error});
-        
+        console.error(error)
       })
   }
 

@@ -16,7 +16,7 @@ document.addEventListener('submit', function(e){
      target.querySelectorAll('input').forEach(function(input){
        formData[input.name] = input.value;
      })
-     Item.create(formData)
+     Item.create(formData);
      target.reset();
     
     }
