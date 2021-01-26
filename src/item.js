@@ -64,7 +64,6 @@ class Item {
 
       .catch(error => {
         new FlashMessage({type: 'error', message: error});
-        console.error(error)
       })
   }
 
@@ -99,17 +98,24 @@ class Item {
 }
 
 class FlashMessage {
-  constructor({type, message}){
+  constructor({type, message}) {
     this.message = message;
-    this.color = type == "error" ? 'bg-red-200' : 'bg-green-100'
+    this.color = type == "error" ? 'bg-red-200' : 'bg-blue-100';
+    this.render();
   }
 
-  static container(){
-    this.c ||= document.querySelector('#flash')
+  static container() {
+    return this.c ||= document.querySelector('#flash')
   }
 
-  render(){
-    this.container().textContent = this.message;
-    this.container().classList.toggle(this.color)
+  render() {
+    this.toggleMessage();
+    window.setTimeout(() => this.toggleMessage(), 5000);
+  }
+
+  toggleMessage() {
+    FlashMessage.container().textContent = this.message;
+    FlashMessage.container().classList.toggle(this.color);
+    FlashMessage.container().classList.toggle('opacity-0');
   }
 }
