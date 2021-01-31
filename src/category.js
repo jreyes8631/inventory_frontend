@@ -40,6 +40,7 @@ class Category {
    this.nameOp  ||= document.createElement('option');
    this.nameOp.class = "container-category";
    this.nameOp.textContent = `Category: ${this.title}`;
+    this.nameOp.dataset.categoryId = this.id;
 
    this.element.append(this.nameOp);
 
