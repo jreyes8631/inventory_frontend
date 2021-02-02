@@ -32,15 +32,17 @@ class Category {
     }
 
   
+    
   render() {
  
-  this.element ||= document.createElement('select');
-   this.element.class = "container";
+   this.element ||= document.getElementById('categories-Select');
+   this.element.classList.add(..."px-6 py-3 text-left text-xs font-medium text-black-500 uppercase tracking-wider bg-green-600".split(" "));
 
    this.nameOp  ||= document.createElement('option');
    this.nameOp.class = "container-category";
-   this.nameOp.textContent = `Category: ${this.title}`;
-
+   this.nameOp.textContent = `${this.title}`;
+   this.nameOp.id = `${this.title}`
+   this.nameOp.value = this.id
    this.element.append(this.nameOp);
 
    return this.element;

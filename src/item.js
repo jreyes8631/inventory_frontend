@@ -1,3 +1,4 @@
+
 class Item {
   constructor(attributes) {
     let whitelist = ["id", "name", "quantity","color", "details", "category_id"]
@@ -37,6 +38,20 @@ class Item {
      return this.collection.find(item => item.id == id);
     }
 
+    static byCategoryId(categoryId) {
+      return this.iCollection.filter(item => item.category_id == categoryId);
+    }
+
+  static loadByCategory(categoryId) {
+     this.container().innerHTML = " "
+     let itemByCategory 
+     let items = categoryId ? this.byCategoryId(categoryId) : this.iCollection
+      itemByCategory = items.map(item => item.render());
+     this.container().append(...itemByCategory)
+    }
+
+
+
     static create(formData) {
     return fetch("http://localhost:3000/items", {
       method: 'POST',
@@ -69,12 +84,14 @@ class Item {
 
   
   render() {
+   
    this.element ||= document.createElement('tr');
    this.element.classList.add(..."min-w-full divide-y divide-gray-200".split(" "));
 
    this.nameTd  ||= document.createElement('td');
    this.nameTd.classList.add(..."px-6 py-3 text-left text-xs font-medium text-black-500 uppercase tracking-wider".split(" "));
    this.nameTd.textContent = this.name;
+   this.nameTd.dataset.itemId = this.id;
 
    this.quantityTd  ||= document.createElement('td');
    this.quantityTd.classList.add(..."px-6 py-3 text-left text-xs font-medium text-black-500 uppercase tracking-wider".split(" "));

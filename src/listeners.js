@@ -1,18 +1,24 @@
 document.addEventListener("click", function(e){
-    console.dir(e.target);
+  console.dir(e.target);
+  let target = e.target
+  if(target.matches("categories-Select"))
+  console.log("selected category Id", category);
+  
+  
 })
 
 
 document.addEventListener('DOMContentLoaded', function(e){
- Category.all();
- Item.all();
-})
+ Category.all().then(() => Item.all());
+ 
+});
 
 document.addEventListener('submit', function(e){
     let target = e.target;
     if(target.matches('#newItem')){
      e.preventDefault();
      let formData = {}
+     
      target.querySelectorAll('input').forEach(function(input){
        formData[input.name] = input.value;
      })
@@ -21,3 +27,12 @@ document.addEventListener('submit', function(e){
     
     }
 })
+
+document.addEventListener('change', function(e){
+  let target = e.target;
+  if( target.matches('select')){
+    let categoryId = target.value;
+    document.getElementById("category_id").value = categoryId;
+    Item.loadByCategory(categoryId)
+  }
+});
