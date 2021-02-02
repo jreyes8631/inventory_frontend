@@ -7,6 +7,11 @@ class Category {
   static container(){
     return this.c ||= document.querySelector("#categories-list")
   }
+
+  static findById(){
+    return this.collection.find(category => category.id == id);
+  }
+
   
 
   static all(){
@@ -30,6 +35,7 @@ class Category {
       return this.collection
     })
   }
+  
 
   
   render() {
@@ -39,9 +45,9 @@ class Category {
 
    this.nameOp  ||= document.createElement('option');
    this.nameOp.class = "container-category";
-   this.nameOp.textContent = `Category: ${this.title}`;
-    this.nameOp.dataset.categoryId = this.id;
-
+   this.nameOp.textContent = `${this.title}`;
+   this.nameOp.id = `${this.title}`
+   this.nameOp.value = this.id
    this.element.append(this.nameOp);
 
    return this.element;
