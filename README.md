@@ -17,3 +17,8 @@ Running the app:
 4. Visit localhost:8000 and fill the form to create the items you want to keep track of.
 
 There are more features to be added in the future, please stay tuned.
+<<<<<<< HEAD
+=======
+
+5. Visit the link: https://github.com/jreyes8631/inventory-backend-api for my backend-api of this project
+>>>>>>> 26d6b9204127488d50576fbac4759d3a5b32adfb
