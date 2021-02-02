@@ -22,11 +22,11 @@ document.addEventListener('submit', function(e){
      target.querySelectorAll('input').forEach(function(input){
        formData[input.name] = input.value;
      })
-
+     
       target.querySelectorAll('select').forEach(function(select){
        formData[select.name] = select.value;
+       debugger
      })
-
      Item.create(formData);
      target.reset();
     
@@ -37,7 +37,6 @@ document.addEventListener('change', function(e){
   let target = e.target;
   if( target.matches('select')){
     let categoryId = target.value;
-    document.getElementById("category_id").value.innerHTML = categoryId;
     Item.loadByCategory(categoryId)
   }
 });
