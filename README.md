@@ -14,7 +14,7 @@ Running the app:
 
 3. Run the command "python2 -m SimpleHTTPServer" to start the server.
 
-4. Visit localhost:8000 and fill the form to create the items you want to keep track of.
+4. Visit localhost:8000 , select a category and fill the form to create the items you want to keep track of.
 
 There are more features to be added in the future, please stay tuned.
 

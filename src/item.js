@@ -19,6 +19,7 @@ class Item {
       })
 
       .then(res => {
+      
         if(res.ok){
           return res.json()
         } else{
@@ -32,6 +33,7 @@ class Item {
         this.container().append(...itemList)
         return this.iCollection
       })
+
     }
     
     static findById(id) {
@@ -42,14 +44,33 @@ class Item {
       return this.iCollection.filter(item => item.category_id == categoryId);
     }
 
-  static loadByCategory(categoryId) {
+    static loadByCategory(categoryId) {
      this.container().innerHTML = " "
      let itemByCategory 
      let items = categoryId ? this.byCategoryId(categoryId) : this.iCollection
-      itemByCategory = items.map(item => item.render());
+     itemByCategory = items.map(item => item.render());
      this.container().append(...itemByCategory)
     }
+     
+    static sortByname(){
+     this.container().innerHTML = " "
+     let byName = this.iCollection.sort(function(a, b) {
+      const nameA = a.name.toUpperCase()
+      const nameB = b.name.toUpperCase()
+      if (nameA < nameB){
+        return -1;
+      }
+      if (nameA > nameB){
+        return 1;
+      }
+      return 0;
 
+    })
+    
+    let sortedByname = byName.map(item => item.render())
+    this.container().append(...sortedByname)
+
+  }
 
 
     static create(formData) {
@@ -81,6 +102,7 @@ class Item {
         new FlashMessage({type: 'error', message: error});
       })
   }
+  
 
   
   render() {
@@ -117,7 +139,7 @@ class Item {
 class FlashMessage {
   constructor({type, message}) {
     this.message = message;
-    this.color = type == "error" ? 'bg-red-200' : 'bg-blue-100';
+    this.color = type == "error" ? 'bg-red-200' : 'bg-green-100';
     this.render();
   }
 

@@ -1,17 +1,13 @@
 document.addEventListener("click", function(e){
   console.dir(e.target);
-  let target = e.target
-  if(target.matches("categories-Select"))
-  console.log("selected category Id", category);
-  
   
 })
 
 
-document.addEventListener('DOMContentLoaded', function(e){
+// document.addEventListener('DOMContentLoaded', function(e){
  Category.all().then(() => Item.all());
  
-});
+// });
 
 document.addEventListener('submit', function(e){
     let target = e.target;
@@ -35,4 +31,15 @@ document.addEventListener('change', function(e){
     document.getElementById("category_id").value = categoryId;
     Item.loadByCategory(categoryId)
   }
+  
 });
+
+document.addEventListener('click', function(e){
+  let target = e.target;
+  if(target.matches('#Sort-by-name')){
+    Item.sortByname();
+   
+  }
+  
+})
+
